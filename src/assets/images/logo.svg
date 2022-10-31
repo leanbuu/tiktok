@@ -1,28 +1,4 @@
-
-import classNames from 'classnames/bind';
-import styles from './Header.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
-import { useEffect, useState } from 'react';
-import { Wrapper as PopperWrapper } from '../../../Popper';
-import Button from '../Button';
-
-const cx = classNames.bind(styles)
-function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([]);
-        }, 0);
-    }, []);
-
-    return (
-        <header className={cx('wrapper')}>
-            <div className={cx('inner')}>
-               <div> <img alt=""/>
-               <svg height="42" width="118">
+<svg height="42" width="118" alt="TikTok">
                <g clipPath="url(#clip0)">
                <path d="M9.87537 16.842V15.7233C9.49211 15.6721 9.10246 15.6401 8.70003 15.6401C3.90288 15.6338 0 19.5399 0 24.3475C0 27.2947 1.46917 29.9031 3.71764 31.4822C2.26763 29.9287 1.37974 27.8381 1.37974 25.5494C1.37974 20.8121 5.17403 16.9507 9.87537 16.842Z" fill="#25F4EE"></path>
                <path d="M10.0862 29.5259C12.2261 29.5259 13.9763 27.819 14.053 25.6965L14.0594 6.72822H17.5215C17.4512 6.33824 17.4129 5.93548 17.4129 5.52632H12.686L12.6796 24.4946C12.603 26.6171 10.8527 28.324 8.71286 28.324C8.04854 28.324 7.42255 28.1578 6.86682 27.8637C7.58224 28.8674 8.75758 29.5259 10.0862 29.5259Z" fill="#25F4EE"></path>
@@ -41,44 +17,3 @@ function Header() {
                <path d="M92.8579 16.8292C92.6407 16.8292 92.3532 16.842 92.1425 16.8548C96.32 17.1808 99.6097 20.6779 99.6097 24.942C99.6097 29.2062 96.32 32.7032 92.1425 33.0293C92.3532 33.0484 92.6407 33.0548 92.8579 33.0548C97.3356 33.0548 100.964 29.4236 100.964 24.942C100.964 20.4605 97.3356 16.8292 92.8579 16.8292Z" fill="#FE2C55"></path>
                <path d="M91.5803 28.8866C89.4021 28.8866 87.6391 27.1221 87.6391 24.942C87.6391 22.762 89.4021 20.9975 91.5803 20.9975C93.7585 20.9975 95.5215 22.762 95.5215 24.942C95.5215 27.1221 93.7522 28.8866 91.5803 28.8866ZM91.5803 16.8292C87.1026 16.8292 83.4744 20.4605 83.4744 24.942C83.4744 29.4236 87.1026 33.0548 91.5803 33.0548C96.0581 33.0548 99.6863 29.4236 99.6863 24.942C99.6863 20.4605 96.0581 16.8292 91.5803 16.8292Z" fill="black"></path></g><defs><clipPath id="clip0"><rect width="118" height="42" fill="white"></rect></clipPath></defs>
             </svg>
-          
-        </div>
-
-        <Tippy
-                    interactive
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                {/* <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem /> */}
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Search accounts and videos" spellCheck={false} />
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </Tippy>
-            <div className={cx('actions')}>
-                <Button primary> Log In</Button>
-                <Button outline>Upload</Button>
-          </div>
-        </div>
-    </header>
-    
-    );
-}
- 
- export default Header;
