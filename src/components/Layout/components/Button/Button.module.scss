@@ -7,9 +7,13 @@
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
+    + .wrapper{
+        margin-left: 8px;
+    }
 }
 
 .primary{
+    background-color: var(--primary);
     background-color: var(--primary);
     color: var(--white);
     &:hover {
@@ -24,6 +28,23 @@
     &:hover {
         border-color: currentColor;
         background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.rounded {
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.text{
+    &:hover{
+        text-decoration: underline;
     }
 }
 
