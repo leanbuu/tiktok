@@ -6,15 +6,23 @@ import classNames from 'classnames';
 
  
 
-const Image = forwardRef(({src, alt, className, ...props }, ref) => {
-    const [fallBack, setFallBack] = useState('')
+const Image = forwardRef(({ src, alt, className, fallback: customFallback = images.noImage, ...props }, ref) => {
+    const [fallback, setFallback] = useState('');
 
-    const handleError = () =>{
-        setFallBack(images.noImage)
-    }
+    const handleError = () => {
+        setFallback(customFallback);
+    };
 
-    return <img className={classNames(styles.wrraper, className)} ref={ref} src={fallBack || src} alt={alt} {...props} onError={handleError} />
-
+    return (
+        <img
+            className={classNames(styles.wrapper, className)}
+            ref={ref}
+            src={fallback || src}
+            alt={alt}
+            {...props}
+            onError={handleError}
+        />
+    );
 });
 
 export default Image;
