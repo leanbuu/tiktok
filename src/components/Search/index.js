@@ -10,6 +10,7 @@ import 'tippy.js/dist/tippy.css';
 import { useEffect, useState, useRef} from 'react';
 import { SearchIcon } from '../Layout/components/Icons';
 import useDebounce from '../../hooks/Debounce';
+import * as searchServices from '../../apiServices/searchServices';
 
 const cx = classNames.bind(styles)
 
@@ -27,20 +28,16 @@ function Search() {
             setSearchResult([]);
             return;
         }
+        const fetchApi = async () => {
+            setLoading(true);
+            
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
 
-        setLoading(true);
-
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-        .then(res => res.json())
-        .then(res => {
-            setSearchResult(res.data);
             setLoading(false);
 
-        })
-        .catch(() => {
-            setLoading(false);
-        })
-       
+        }
+        fetchApi()
     }, [debounced]);
 
 
