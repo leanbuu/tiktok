@@ -1,6 +1,7 @@
 
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion,  faCoins, faEarthAsia, faEllipsisVertical, faGear, faKeyboard,  faSignOut,   faUser } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
@@ -10,6 +11,7 @@ import 'tippy.js/dist/tippy.css';
 import { InboxIcon, MessageIcon, UploadIcon } from '../Icons';
 import Image from '../Image';
 import Search from '../../../Search';
+import routesConfig from "../../../../config/routes"
 
 
 const cx = classNames.bind(styles)
@@ -81,7 +83,8 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-               <div> <img alt=""/>
+               <Link to={routesConfig.home} className={cx('logo-link')}>
+                <img alt=""/>
                <svg height="42" width="118">
                <g clipPath="url(#clip0)">
                <path d="M9.87537 16.842V15.7233C9.49211 15.6721 9.10246 15.6401 8.70003 15.6401C3.90288 15.6338 0 19.5399 0 24.3475C0 27.2947 1.46917 29.9031 3.71764 31.4822C2.26763 29.9287 1.37974 27.8381 1.37974 25.5494C1.37974 20.8121 5.17403 16.9507 9.87537 16.842Z" fill="#25F4EE"></path>
@@ -102,7 +105,7 @@ function Header() {
                <path d="M91.5803 28.8866C89.4021 28.8866 87.6391 27.1221 87.6391 24.942C87.6391 22.762 89.4021 20.9975 91.5803 20.9975C93.7585 20.9975 95.5215 22.762 95.5215 24.942C95.5215 27.1221 93.7522 28.8866 91.5803 28.8866ZM91.5803 16.8292C87.1026 16.8292 83.4744 20.4605 83.4744 24.942C83.4744 29.4236 87.1026 33.0548 91.5803 33.0548C96.0581 33.0548 99.6863 29.4236 99.6863 24.942C99.6863 20.4605 96.0581 16.8292 91.5803 16.8292Z" fill="black"></path></g><defs><clipPath id="clip0"><rect width="118" height="42" fill="white"></rect></clipPath></defs>
             </svg>
           
-        </div>
+        </Link>
 
       <Search />
        <div className={cx('actions')}>
