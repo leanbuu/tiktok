@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion,  faCoins, faEarthAsia, faEllipsisVertical, faGear, faKeyboard,  faSignOut,   faUser } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import Button from '../Button';
-import Menu from '../../../Popper/Menu';
+import Menu from '../../../components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
 import { InboxIcon, MessageIcon, UploadIcon } from '../Icons';
 import Image from '../Image';
-import Search from '../../../Search';
-import routesConfig from "../../../../config/routes"
+import Search from '../../../components/Search';
+import config from '../../../config';
 
 
 const cx = classNames.bind(styles)
@@ -83,7 +83,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-               <Link to={routesConfig.home} className={cx('logo-link')}>
+               <Link to={config.routes.home} className={cx('logo-link')}>
                 <img alt=""/>
                <svg height="42" width="118">
                <g clipPath="url(#clip0)">
@@ -124,7 +124,7 @@ function Header() {
            <Tippy delay={[0, 50]} content={'Inbox'} placement='bottom'>
               <button className={cx('actions-btn')}>
                 <InboxIcon />
-                <span className={cx('badge')}>20</span>
+                <span className={cx('badge')}>99</span>
               </button>
            </Tippy>
            </> 
