@@ -10,8 +10,10 @@ import Menu from '../../../components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
 import { InboxIcon, MessageIcon, UploadIcon } from '../Icons';
 import Image from '../Image';
-import Search from '../../../components/Search';
+import Search from '../Search';
 import config from '../../../config';
+
+
 
 
 const cx = classNames.bind(styles)
@@ -154,5 +156,6 @@ function Header() {
     
     );
 }
+
  
  export default Header;
